@@ -9,7 +9,7 @@ class Request
         return new self();
     }
 
-    public function fill($input): Request
+    public function fill(array $input): Request
     {
         $this->sequence = $this->parse($input);
         return $this;

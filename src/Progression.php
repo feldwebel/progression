@@ -11,18 +11,20 @@ class Progression
     /** @var ChainChecker IChecker */
     private $checker;
 
+    /** @var Request $request */
     private $request;
 
+    /** @var Response $response */
     private $response;
 
-    public static function create(array $argv)
+    public static function create(array $data)
     {
-        return new self($argv);
+        return new self($data);
     }
 
-    public function __construct(array $argv)
+    public function __construct(array $data)
     {
-        $this->request = Request::create()->fill($argv);
+        $this->request = Request::create()->fill($data);
         
         $this->response = new Response();
 
@@ -36,9 +38,10 @@ class Progression
 
     public function detect(): Response
     {
-        return $this->request->isRequestValid()
-            ? $this->checker->check($this->request, $this->response)
-            : $this->response->setError('Input data is not valid')
+        return
+            $this->request->isRequestValid()
+                ? $this->checker->check($this->request, $this->response)
+                : $this->response->setError('Input data is not valid')
         ;
     }
 }

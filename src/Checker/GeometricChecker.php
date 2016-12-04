@@ -17,6 +17,7 @@ class GeometricChecker extends AbstractChecker
                 return false;
             }
         }
+
         return true;
     }
 }

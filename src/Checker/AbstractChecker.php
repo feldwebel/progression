@@ -12,7 +12,6 @@ abstract class AbstractChecker implements IChecker
         MESSAGE = 'abstract checker message'
     ;
 
-
     public function check(Request $request, Response $response): Response
     {
         if ($this->isChecked($request)) {

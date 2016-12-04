@@ -8,12 +8,6 @@ class Response
         ERROR = 3
     ;
 
-    private $name = [
-        self::SUCCESS => 'Ok',
-        self::FAIL => 'Fail',
-        self::ERROR => 'Error',
-    ];
-
     private $status;
 
     private $message;
@@ -66,6 +60,8 @@ class Response
             case self::ERROR :
                 return "It seems input data to be wrong: {$this->message}\n";
 
+            default:
+                return "Some unexpected error happens\n";
         }
     }
 }
