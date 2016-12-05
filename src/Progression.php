@@ -8,7 +8,7 @@ use Checker\ShortSequenceChecker;
 
 class Progression
 {
-    /** @var ChainChecker IChecker */
+    /** @var ChainChecker $checker */
     private $checker;
 
     /** @var Request $request */
